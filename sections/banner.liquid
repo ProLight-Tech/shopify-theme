@@ -1,0 +1,214 @@
+{{ 'section-banner.css' | asset_url | stylesheet_tag }}
+
+<style>
+  @media screen and (max-width: 768px) {
+    #Banner-{{ section.id }} .banner-text-wrapper {
+      text-align: center !important;
+    }
+
+    #Banner-{{ section.id }} .banner-text-wrapper h2,
+    #Banner-{{ section.id }} .banner-text-wrapper p {
+      text-align: center !important;
+    }
+
+  }
+</style>
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+
+  if section.settings.show_background == true
+    assign bg_color = section.settings.text_card_color
+  else
+    assign bg_color = 'transparent'
+  endif
+
+  if section.settings.content_position == 'left'
+    assign text_positioning = 'start'
+    assign item_alignemnt = 'start'
+  elsif section.settings.content_position == 'right'
+    assign text_positioning = 'end'
+    assign item_alignemnt = 'end'
+  else
+    assign text_positioning = 'center'
+    assign item_alignemnt = 'center'
+  endif
+-%}
+
+<div id="Banner-{{ section.id }}" class="banner-main-container force-mobile-center">
+  <div class="banner-text-container banner-text-{{ section.settings.content_position }}">
+    <div class="banner-text-wrapper" style="background-color: {{ bg_color }}; align-items: {{ item_alignemnt }};">
+      {%- if section.settings.title -%}
+        <h2 style="text-align: {{ text_positioning }}; color: {{ section.settings.text_color }};">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.body -%}
+        <p
+          class="text-body banner-text-paragraph"
+          style="text-align: {{ text_positioning }}; color: {{ section.settings.text_color }};"
+        >
+          {{ section.settings.body }}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.main_button != blank or section.settings.secondary_button != blank -%}
+        <div style="justify-content: {{ item_alignemnt }};" class="banner-buttons-container">
+          {%- if section.settings.main_button != blank -%}
+            <a
+              href="{{ section.settings.main_button_link }}"
+              style="color: {{ section.settings.main_button_text_color }}; background-color: {{ section.settings.main_button_background_color }}"
+              class="button banner-button"
+            >
+              {{- section.settings.main_button -}}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.secondary_button != blank -%}
+            <a
+              href="{{ section.settings.secondary_button_link }}"
+              style="background-color: transparent; color: {{ section.settings.secondary_button_background_color }}; border: 1px solid {{ section.settings.secondary_button_background_color }};"
+              class="button button--secondary banner-button"
+            >
+              {{- section.settings.secondary_button -}}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+  <div
+    style="{% if section.settings.image == blank %}background-color: #efeff0;{% endif %}"
+    class="banner-image-container"
+  >
+    {%- if section.settings.image -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag: class: 'banner-image', fetchpriority: fetch_priority
+      }}
+    {% else %}
+      <div class="banner-imag-placeholder"></div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_card_color",
+      "label": "Text Card Background Color",
+      "default": "#204EC6"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_background",
+      "label": "Show background",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Content positioning"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "15% Off on all wallpacks!",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "body",
+      "default": "Made with durable aluminum alloy housing, our IP65-rated Wall Pack easily stands up to the elements.",
+      "label": "Body"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "main_button",
+      "default": "See product",
+      "label": "Main button"
+    },
+    {
+      "type": "url",
+      "id": "main_button_link",
+      "label": "Main Button link"
+    },
+    {
+      "type": "color",
+      "id": "main_button_background_color",
+      "label": "Main Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "main_button_text_color",
+      "label": "Main Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button",
+      "default": "See collection",
+      "label": "Secondary button"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button link"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_background_color",
+      "label": "Secondary Button Background Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner with Image",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
