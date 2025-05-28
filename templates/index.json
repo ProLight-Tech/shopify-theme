@@ -79,6 +79,13 @@
         "content_position": "left"
       }
     },
+    "shop_by_category": {
+      "id": "shop-by-category",
+      "type": "collection-grid",
+      "settings": {
+        "collections_grid_list": ["strip-lights", "area-lights", "security-lights", "high-bays", "panels", "vapor-tight"]
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -213,6 +220,7 @@
     "image_banner",
     "rich_text",
     "featured_collection_banner",
+    "shop_by_category",
     "featured_collection",
     "collage",
     "featured_collection_banner_2",
