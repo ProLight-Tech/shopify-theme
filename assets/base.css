@@ -3595,3 +3595,34 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* Product Preview */
+.product-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-preview-image {
+  width: 220px;
+  height: 220px;
+  background-color: gray;
+  object-fit: cover;
+}
+
+.product-preview-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 220px;
+}
+
+.product-preview-collection {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 220px;
+}
+
+.product-preview-link {
+  text-decoration: none;
+  color: black;
+}

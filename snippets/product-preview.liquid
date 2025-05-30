@@ -1,0 +1,28 @@
+{% comment %}
+  Renders a product media gallery. Should be used with 'media-gallery.js'
+  Also see 'product-media-modal'
+
+  Accepts:
+  - product: {Object} Product liquid object
+
+  Usage:
+  {% render 'carousel', product: product %}
+{% endcomment %}
+
+<a class="product-preview-link" href="{{ product.url }}">
+  <div class="product-preview-container">
+    <div class="product-preview-image" style="display: block;">
+      <img
+        width="220"
+        height="220"
+        src="{{ product.featured_image |  image_url: width: 220 }}"
+        alt="{{ product.featured_image.alt }}"
+      >
+    </div>
+    <div class="product-preview-text">
+      <h3 class="product-preview-title">{{ product.title }}</h3>
+      <p class="text-body product-preview-collection">{{ product.collections[0].title }}</p>
+      <div>{{ product.price_min | money }}</div>
+    </div>
+  </div>
+</a>

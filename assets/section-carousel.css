@@ -1,0 +1,97 @@
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 0px;
+  position: relative;
+}
+
+.carousel-scroller {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 8px;
+  scroll-padding-left: 12px;
+  scrollbar-width: none;
+}
+
+.carousel-scroller::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.carousel-wrapper > *:first-child {
+  padding-left: 12px;
+}
+
+.carousel-wrapper > *:last-child {
+  padding-right: 12px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 32px;
+}
+
+.carousel-wrapper > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.carousel-container > h2 {
+  margin-left: 12px;
+}
+
+/* Scroll buttons */
+.carousel-button {
+  position: absolute;
+  top: 200px;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+.carousel-button.right > img {
+  transform: rotate(180deg);
+}
+
+/* For tablets and up (min-width: 768px) */
+@media (min-width: 768px) {
+  .carousel-container {
+    padding: 0px 32px;
+  }
+  .carousel-wrapper > *:first-child {
+    padding-left: 0px;
+  }
+
+  .carousel-wrapper > *:last-child {
+    padding-right: 0px;
+  }
+  .carousel-wrapper {
+    gap: 16px;
+  }
+}
+
+/* For desktops and up (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .carousel-wrapper {
+    gap: 32px;
+  }
+}
