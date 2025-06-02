@@ -1,0 +1,67 @@
+.help-container {
+  max-width: var(--page-width);
+  margin: 0px auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.help-copy-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.help-cards-container {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.help-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1/1;
+  height: 300px;
+  gap: 16px;
+  background-color: #efeff0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.help-card-text-container > h4,
+.help-card-text-container > p {
+  margin: 0px 0px;
+}
+
+.help-card-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* For tablets and up */
+@media (min-width: 768px) {
+}
+
+/* For desktops and up */
+@media (min-width: 1024px) {
+  .help-container {
+    flex-direction: row;
+    gap: 32px;
+    justify-content: space-between;
+  }
+  .hlep-copy-container {
+    gap: 32px;
+  }
+
+  .help-cards-container {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,99 @@
+{{ 'section-help.css' | asset_url | stylesheet_tag }}
+
+<div class="help-container">
+  <div class="help-copy-container">
+    <h2>{{ section.settings.title }}</h2>
+    <p>{{ section.settings.body_text }}</p>
+  </div>
+
+  <div class="help-cards-container">
+    <div class="help-card">
+      <img width="80" height="80" src="{{ 'icon-mail.svg' | asset_url }}" alt="Mail Icon">
+      <div class="help-card-text-container">
+        <h4>
+          {{ section.settings.email_header }}
+        </h4>
+        <p class="text-body">
+          {{ section.settings.email_text }}
+        </p>
+      </div>
+    </div>
+    <div class="help-card">
+      <img width="80" height="80" src="{{ 'icon-phone.svg' | asset_url }}" alt="Phone Icon">
+      <div class="help-card-text-container">
+        <h4>
+          {{ section.settings.call_header }}
+        </h4>
+        <p class="text-body">
+          {{ section.settings.call_text }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Help",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body text"
+    },
+    {
+      "type": "header",
+      "content": "Email"
+    },
+    {
+      "type": "text",
+      "id": "email_header",
+      "label": "Email Title"
+    },
+    {
+      "type": "text",
+      "id": "email_text",
+      "label": "Email Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "email_icon",
+      "label": "Email Icon"
+    },
+    {
+      "type": "header",
+      "content": "Call"
+    },
+    {
+      "type": "text",
+      "id": "call_header",
+      "label": "Call Title"
+    },
+    {
+      "type": "text",
+      "id": "call_text",
+      "label": "Call Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "call_icon",
+      "label": "Call Icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Help Section"
+    }
+  ]
+}
+{% endschema %}
