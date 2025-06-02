@@ -14,7 +14,7 @@
   align-items: center;
   color: white;
   margin: 0px auto;
-  max-width: 1200px;
+  max-width: var(--page-width);
 }
 
 .banner-text-center {
@@ -98,6 +98,10 @@
 
 /* For tablets and up (min-width: 768px) */
 @media (min-width: 768px) {
+  .banner-main-container {
+    height: 600px;
+  }
+
   .banner-text-wrapper h2 {
     margin: 0px;
     font-size: 3rem;

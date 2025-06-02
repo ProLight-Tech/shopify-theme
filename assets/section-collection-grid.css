@@ -1,7 +1,7 @@
 .collection-grid-container {
   margin: 32px auto;
   padding: 0px 32px;
-  max-width: 1200px;
+  max-width: var(--page-width);
 }
 
 .collection-grid-container h2 {
