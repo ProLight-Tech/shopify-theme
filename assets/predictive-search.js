@@ -227,7 +227,6 @@ class PredictiveSearch extends SearchForm {
 
   renderSearchResults(resultsMarkup) {
     this.predictiveSearchResults.innerHTML = resultsMarkup;
-    console.log(resultsMarkup);
     this.setAttribute('results', true);
 
     this.setLiveRegionResults();

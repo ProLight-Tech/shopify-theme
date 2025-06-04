@@ -1,5 +1,4 @@
 function scrollCarousel(carouselId, direction) {
-  console.log(carouselId);
   const scroller = document.getElementById(`carouselScroller-${carouselId}`);
 
   if (!scroller) return;
