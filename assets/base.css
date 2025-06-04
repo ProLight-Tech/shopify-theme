@@ -2249,7 +2249,7 @@ input[type='checkbox'] {
   padding: 1rem 0;
   margin: 0;
   letter-spacing: 0.1rem;
-  min-height: 3.8rem;
+  /* min-height: 3.8rem; */
 }
 
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
@@ -2331,13 +2331,13 @@ input[type='checkbox'] {
   transition: top 0.15s ease-out;
 }
 
-.shopify-section-group-header-group {
+/* .shopify-section-group-header-group {
   z-index: 4;
-}
+} */
 
-.section-header ~ .shopify-section-group-header-group {
+/* .section-header ~ .shopify-section-group-header-group {
   z-index: initial;
-}
+} */
 
 /* Main Header Layout */
 .header-wrapper {
@@ -2347,7 +2347,7 @@ input[type='checkbox'] {
 }
 
 .header-wrapper--border-bottom {
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border-bottom: 0.1rem solid #dadada;
 }
 
 .header {
@@ -2378,14 +2378,18 @@ input[type='checkbox'] {
 
   .header--top-left.drawer-menu,
   .header--middle-left.drawer-menu {
-    grid-template-areas: 'navigation heading icons';
+    grid-template-areas:
+      'heading navigation icons'
+      'menu    menu       menu';
     grid-template-columns: auto 1fr auto;
     column-gap: 1rem;
   }
 
   .header--middle-left {
-    grid-template-areas: 'heading navigation icons';
-    grid-template-columns: auto auto 1fr;
+    grid-template-areas:
+      'heading navigation icons'
+      'menu    menu       menu';
+    grid-template-columns: auto 1fr auto;
     column-gap: 2rem;
   }
 
@@ -2705,6 +2709,7 @@ details[open] .modal-overlay::after {
 @media screen and (min-width: 990px) {
   .search-modal__form {
     max-width: 74.2rem;
+    margin: 0px auto;
   }
 
   .search-modal__close-button {
@@ -3625,4 +3630,28 @@ details-disclosure > details {
 .product-preview-link {
   text-decoration: none;
   color: black;
+}
+
+.search-header {
+  display: none;
+}
+
+/* For tablets and up */
+@media (min-width: 990px) {
+  .search-header {
+    display: block;
+  }
+
+  .header__icon--search {
+    display: none;
+  }
+}
+
+.field:after {
+  box-shadow: none;
+}
+
+.field:hover.field:after,
+.field_input:focus {
+  box-shadow: none;
 }

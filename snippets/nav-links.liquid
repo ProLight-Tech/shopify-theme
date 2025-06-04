@@ -1,0 +1,26 @@
+<nav>
+  <navigation-dropdown>
+    <ul class="nav-links-container">
+      {%- for link in section.settings.menu.links -%}
+        <li>
+          {%- if link.links != blank -%}
+            <div class="nav-nested-menu-container">
+              <span onclick="" class="text-body nav-link submenu">{{ link.title }} </span>
+              <ul class="nav-nested-menu closed">
+                {% for nestedLink in link.links %}
+                  <li>
+                    {%- if nestedLink.type == 'collection_link' and nestedLink.object != blank -%}
+                      {% render 'nav-collection-preview', collection: nestedLink.object %}
+                    {%- endif -%}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {%- else -%}
+            <a class="text-body nav-link" href="{{ link.url }}">{{- link.title | escape -}}</a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </navigation-dropdown>
+</nav>

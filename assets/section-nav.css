@@ -1,0 +1,102 @@
+.nav-container {
+  display: none;
+}
+
+.nav-links-container {
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  height: 32px;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-nested-menu-container {
+  position: relative;
+}
+
+.closed {
+  display: none;
+}
+
+.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.underlined {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.nav-nested-menu {
+  gap: 0px;
+  flex-direction: column;
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #dadada;
+  z-index: 5;
+  padding: 0px;
+}
+
+.nav-nested-menu li:not(:first-child) {
+  border-top: 1px solid #dadada;
+}
+
+.nav-nested-menu > li {
+  list-style: none;
+}
+
+.nav-nested-menu > li > a {
+  text-decoration: none;
+}
+
+.nav-collection-preview-container {
+  display: flex;
+}
+
+.nav-collection-preview-container > * {
+  flex: 1 0 200px;
+  height: 100px;
+}
+
+.nav-collection-preview-title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 16px;
+  color: black;
+}
+
+.nav-collection-preview-image {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* For tablets and up */
+@media (min-width: 990px) {
+  .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: menu;
+    height: 42px;
+    border-top: 1px solid #dadada;
+  }
+}
+
+/* For desktops and up (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .nav-nested-menu {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+}

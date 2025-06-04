@@ -9,6 +9,7 @@
             "background": "#FFFFFF",
             "background_gradient": "",
             "text": "#121212",
+            "border": "#DADADA",
             "button": "#121212",
             "button_label": "#FFFFFF",
             "secondary_button_label": "#121212",
