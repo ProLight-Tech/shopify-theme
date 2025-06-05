@@ -21,64 +21,12 @@
       }
     },
     "shop_by_category": {
-      "id": "shop-by-category",
-      "type": "collection-grid",
+      "id": "shop_by_category",
+      "type": "carousel",
       "settings": {
-        "collections_grid_list": ["strip-lights", "area-lights", "security-lights", "high-bays", "panels", "vapor-tight"]
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": ["collection-0", "product", "collection-1"],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "mode": "multiple",
+        "title": "Shop by category",
+        "collection_list": ["strip-lights", "area-lights", "security-lights", "high-bays", "panels", "vapor-tight"]
       }
     },
     "featured_collection_banner_2": {
@@ -87,72 +35,13 @@
         "content_position": "right"
       }
     },
-    "featured_collection_banner_3": {
-      "type": "banner",
+    "shop_by_space": {
+      "id": "shop_by_space",
+      "type": "carousel",
       "settings": {
-        "content_position": "center"
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": ["column1", "column2", "column3"],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "mode": "multiple",
+        "title": "Shop by space",
+        "collection_list": ["strip-lights", "area-lights", "security-lights", "high-bays", "panels", "vapor-tight"]
       }
     },
     "help": {
@@ -163,7 +52,17 @@
         "email_header": "Email us",
         "email_text": "support@youremail.com",
         "call_header": "Call us",
-        "call_text": "(000) 000-0000",
+        "call_text": "(000) 000-0000"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter-banner",
+      "settings": {
+        "title": "Join our newsletter get 10% off your first order",
+        "paragraph": "Yes, I'd like to receive special offer emails from ProLight Tech, as well as news about products, services and my designs in progress. Read our Privacy and Cookie policy.",
+        "placeholder_input": "john@doe.com",
+        "text_button": "Sign up",
+        "newsletter_link": "/"
       }
     }
   },
@@ -172,12 +71,9 @@
     "product_carousel",
     "featured_collection_banner",
     "shop_by_category",
-    "featured_collection",
-    "collage",
     "featured_collection_banner_2",
-    "video",
-    "multicolumn",
-    "featured_collection_banner_3",
+    "shop_by_space",
+    "newsletter",
     "help"
   ]
 }

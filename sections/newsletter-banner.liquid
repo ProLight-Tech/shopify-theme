@@ -1,0 +1,74 @@
+{{ 'section-newsletter-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="newsletter-banner-container">
+  <div class="newsletter-banner-wrapper">
+    <h2>{{ section.settings.title }}</h2>
+    <form
+      id="newsletter_form-{{ section.id }}"
+      action="{{ section.settings.newsletter_link }}"
+      method="post"
+      role="newsletter"
+      class="newsletter-banner-form"
+    >
+      <input
+        id="newsletter_field-sectionId-{{ section.id }}"
+        name="newsletter_signup"
+        class="text__input"
+        placeholder="{{ section.settings.placeholder_input }} "
+      >
+      <button class="button newsletter-button" type="submit">{{ section.settings.text_button }}</button>
+    </form>
+    <p class="text-body">{{ section.settings.paragraph | escape }}</p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    event.preventDefault();
+    const form = document.getElementById('newsletter_form-{{ section.id }}');
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Newsletter Banner",
+  "class": "seciton",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "join our newsletter get 10% off your first order"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph"
+    },
+    {
+      "type": "text",
+      "id": "text_button",
+      "label": "Text button"
+    },
+    {
+      "type": "header",
+      "content": "Input field"
+    },
+    {
+      "type": "url",
+      "id": "newsletter_link",
+      "label": "Newsletter signup link"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_input",
+      "label": "Input placeholder text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Banner"
+    }
+  ]
+}
+{% endschema %}

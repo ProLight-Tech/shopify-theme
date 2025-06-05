@@ -1,0 +1,16 @@
+<a href="{{ collection.url }}" class="collection-preview-container">
+  <div class="collection-preview-image-container">
+    {% if collection.featured_image != blank %}
+      {{ collection.featured_image | image_url: height: 300 | image_tag: class: 'collection-preview-image' }}
+    {% else %}
+      <img
+        src="{{ 'nav-collection-preview-placeholder.png' |  asset_url }}"
+        width="300"
+        height="300"
+        class="collection-preview-image"
+        alt="Placeholder image"
+      >
+    {% endif %}
+  </div>
+  <h4 class="collection-preview-header">{{ collection.title }}</h4>
+</a>
