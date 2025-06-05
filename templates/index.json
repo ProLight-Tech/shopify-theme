@@ -59,7 +59,7 @@
       "settings": {
         "mode": "single",
         "title": "Shop by category",
-        "collection": "",
+        "collection": "new-arrivals",
         "collection_list": []
       }
     },
