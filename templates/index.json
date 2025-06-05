@@ -1,47 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
       "type": "banner",
       "settings": {
-        "content_position": "left"
+        "text_color": "#ffffff",
+        "text_card_color": "#204ec6",
+        "show_background": true,
+        "content_position": "left",
+        "title": "15% Off on all wallpacks!",
+        "body": "Made with durable aluminum alloy housing, our IP65-rated Wall Pack easily stands up to the elements.",
+        "main_button": "See product",
+        "main_button_link": "",
+        "main_button_background_color": "#000000",
+        "main_button_text_color": "#ffffff",
+        "secondary_button": "See collection",
+        "secondary_button_link": "",
+        "secondary_button_background_color": "#ffffff"
       }
     },
     "product_carousel": {
       "type": "carousel",
-      "id": "product-carousel",
       "settings": {
+        "mode": "single",
+        "title": "New Arrivals",
         "collection": "new-arrivals",
-        "title": "New Arrivals"
+        "collection_list": []
       }
     },
     "featured_collection_banner": {
       "type": "banner",
       "settings": {
-        "content_position": "left"
+        "text_color": "#ffffff",
+        "text_card_color": "#204ec6",
+        "show_background": true,
+        "content_position": "left",
+        "title": "15% Off on all wallpacks!",
+        "body": "Made with durable aluminum alloy housing, our IP65-rated Wall Pack easily stands up to the elements.",
+        "main_button": "See product",
+        "main_button_link": "",
+        "main_button_background_color": "#000000",
+        "main_button_text_color": "#ffffff",
+        "secondary_button": "See collection",
+        "secondary_button_link": "",
+        "secondary_button_background_color": "#ffffff"
       }
     },
     "shop_by_category": {
-      "id": "shop_by_category",
       "type": "carousel",
       "settings": {
-        "mode": "multiple",
+        "mode": "single",
         "title": "Shop by category",
-        "collection_list": ["strip-lights", "area-lights", "security-lights", "high-bays", "panels", "vapor-tight"]
+        "collection": "",
+        "collection_list": []
       }
     },
     "featured_collection_banner_2": {
       "type": "banner",
       "settings": {
-        "content_position": "right"
+        "text_color": "#ffffff",
+        "text_card_color": "#204ec6",
+        "show_background": true,
+        "content_position": "right",
+        "title": "15% Off on all wallpacks!",
+        "body": "Made with durable aluminum alloy housing, our IP65-rated Wall Pack easily stands up to the elements.",
+        "main_button": "See product",
+        "main_button_link": "",
+        "main_button_background_color": "#000000",
+        "main_button_text_color": "#ffffff",
+        "secondary_button": "See collection",
+        "secondary_button_link": "",
+        "secondary_button_background_color": "#ffffff"
       }
     },
     "shop_by_space": {
-      "id": "shop_by_space",
       "type": "carousel",
       "settings": {
         "mode": "multiple",
         "title": "Shop by space",
-        "collection_list": ["strip-lights", "area-lights", "security-lights", "high-bays", "panels", "vapor-tight"]
+        "collection": "",
+        "collection_list": [
+          "new-arrivals",
+          "high-bays",
+          "flood-lights",
+          "panels",
+          "linear-lights"
+        ]
+      }
+    },
+    "newsletter": {
+      "type": "newsletter-banner",
+      "settings": {
+        "title": "Join our newsletter get 10% off your first order",
+        "paragraph": "Yes, I'd like to receive special offer emails from ProLight Tech, as well as news about products, services and my designs in progress. Read our Privacy and Cookie policy.",
+        "text_button": "Sign up",
+        "newsletter_link": "/",
+        "placeholder_input": "john@doe.com"
       }
     },
     "help": {
@@ -53,16 +115,6 @@
         "email_text": "support@youremail.com",
         "call_header": "Call us",
         "call_text": "(000) 000-0000"
-      }
-    },
-    "newsletter": {
-      "type": "newsletter-banner",
-      "settings": {
-        "title": "Join our newsletter get 10% off your first order",
-        "paragraph": "Yes, I'd like to receive special offer emails from ProLight Tech, as well as news about products, services and my designs in progress. Read our Privacy and Cookie policy.",
-        "placeholder_input": "john@doe.com",
-        "text_button": "Sign up",
-        "newsletter_link": "/"
       }
     }
   },
