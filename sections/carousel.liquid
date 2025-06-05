@@ -24,9 +24,15 @@
 
   <div class="carousel-scroller" id="carouselScroller-{{ section.id }}">
     <div class="carousel-wrapper">
-      {% for product in section.settings.collection.products %}
-        {% render 'product-preview' | product: product %}
-      {% endfor %}
+      {%- if section.settings.mode == 'single' %}
+        {% for product in section.settings.collection.products %}
+          {% render 'product-preview' | product: product %}
+        {% endfor %}
+      {% else %}
+        {% for collection in section.settings.collection_list %}
+          {% render 'collection-preview' | collection: collection %}
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </div>
@@ -43,6 +49,16 @@
   },
   "settings": [
     {
+      "type": "select",
+      "id": "mode",
+      "label": "Mode",
+      "options": [
+        { "value": "single", "label": "Single Collection" },
+        { "value": "multiple", "label": "Multiple Collections" }
+      ],
+      "default": "single"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Title"
@@ -51,6 +67,11 @@
       "type": "collection",
       "id": "collection",
       "label": "Collection"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collection List"
     }
   ],
   "presets": [
