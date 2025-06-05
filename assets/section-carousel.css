@@ -1,8 +1,7 @@
 .carousel-container {
   max-width: var(--page-width);
-  margin: 0 auto;
   padding: 0px 0px;
-  margin: 4rem 0px;
+  margin: 4rem auto;
   position: relative;
 }
 
