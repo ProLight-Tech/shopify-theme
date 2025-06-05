@@ -1,6 +1,5 @@
 .newsletter-banner-container {
-  min-height: 400px;
-  background-color: rgb(219, 219, 219);
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;

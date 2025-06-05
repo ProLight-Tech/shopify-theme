@@ -3616,15 +3616,22 @@ details-disclosure > details {
 }
 
 .product-preview-title {
-  text-overflow: ellipsis;
-  overflow: hidden;
   width: 220px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .product-preview-collection {
-  text-overflow: ellipsis;
-  overflow: hidden;
+  color: rgb(127, 127, 127);
   width: 220px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .product-preview-link {
@@ -3661,11 +3668,19 @@ details-disclosure > details {
   text-decoration: none;
   color: black;
   text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.collection-preview-container h3 {
-  width: 300px;
-  text-overflow: ellipsis;
+.collection-preview-header {
+  width: 220px;
+  margin: 0px auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .collection-preview-image {

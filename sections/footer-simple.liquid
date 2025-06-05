@@ -1,0 +1,45 @@
+{{ 'section-footer-simple.css' | asset_url | stylesheet_tag }}
+
+<div class="simple__footer__container">
+  {% comment %} payment methods {% endcomment %}
+  <div class="footer_simple_payment_wrapper">
+    <div class="footer__simple__payment">
+      <ul class="footer__links__container">
+        <li>{{ section.settings.copyright }}</li>
+        {% for link in section.settings['footer-menu'].links %}
+          <li>
+            <a class="footer__simple__link text-body" href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="" role="list">
+        {%- for type in shop.enabled_payment_types -%}
+          <li class="list-payment__item">
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright text",
+      "default": "2025, ProLight Tech"
+    },
+    {
+      "type": "link_list",
+      "id": "footer-menu",
+      "label": "Footer menu links"
+    }
+  ]
+}
+{% endschema %}
