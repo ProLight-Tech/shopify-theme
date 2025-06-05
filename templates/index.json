@@ -57,10 +57,17 @@
     "shop_by_category": {
       "type": "carousel",
       "settings": {
-        "mode": "single",
+        "mode": "multiple",
         "title": "Shop by category",
         "collection": "new-arrivals",
-        "collection_list": []
+        "collection_list": [
+          "wall-packs",
+          "new-arrivals",
+          "linear-lights",
+          "high-bays",
+          "flood-lights",
+          "emergency-lights"
+        ]
       }
     },
     "featured_collection_banner_2": {
