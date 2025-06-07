@@ -1,0 +1,22 @@
+{{ 'section-product-filters.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-preview-collection.js' | asset_url }}" defer="defer"></script>
+
+<div class="filtered-products-container">
+  <div class="filtered-products-sidebar">Todo: filters</div>
+  <div>
+    {% paginate collection.products by 12 %}
+      {% for product in collection.products %}
+        <product-collection-preview>
+          {% render 'product-preview-collection': product: product %}
+        </product-collection-preview>
+      {% endfor %}
+    {% endpaginate %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "product-filters",
+  "settings": []
+}
+{% endschema %}

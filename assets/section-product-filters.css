@@ -1,0 +1,142 @@
+.filtered-products-container {
+  max-width: var(--page-width);
+  margin: 0px auto;
+  padding: 32px;
+  display: flex;
+  gap: 32px;
+}
+
+.filtered-products-sidebar {
+  width: 300px;
+  border-right: solid 1px #dadada;
+}
+
+/* Product preivew */
+
+.product-preview-collection__container {
+  display: flex;
+  gap: 64px;
+  padding: 32px 0px;
+  border-bottom: solid 1px #dadada;
+}
+
+/* Remove border from the last one */
+product-collection-preview:last-of-type .product-preview-collection__container {
+  border-bottom: none;
+}
+.product-preview-collection__header h3 {
+  font-size: 3rem;
+  margin: 0px;
+}
+
+.product-preview-collection__image {
+  width: 300px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.product-preview-picker-button {
+  border-radius: 32px;
+  height: 32px;
+  width: 32px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: content-box;
+  overflow: hidden;
+  border: solid 2px #dadada;
+}
+
+.product-preview-picker-button:hover {
+  cursor: pointer;
+}
+
+.swatch-active {
+  border: solid 2px #2b2bf6;
+}
+
+.product-preview-picker-button img {
+  object-fit: contain;
+}
+
+.product-preview-collection__container p {
+  margin: 0px;
+}
+
+.product-preview-collection__features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.product-preview-collection__sku-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.product-preview-collection-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 12px;
+  column-gap: 24px;
+  max-width: 624px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.product-preview-collection__variants {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.product-preview-collection__variants div:first-child {
+  display: flex;
+  gap: 8px;
+}
+
+.product-preview-collection-feature {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+
+.product-preview-collection-feature * {
+  flex: 1;
+}
+
+.product-preview-collection-feature::before {
+  content: '•';
+  margin-right: 0.5rem;
+  margin-top: -4px;
+  color: #555; /* optional: change dot color */
+}
+
+.product-preview-collection__footer {
+  display: flex;
+  gap: 64px;
+  align-items: end;
+}
+
+.product-preview-collection__price {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-preview-collection__price span {
+  font-size: 1.5rem;
+}
+
+.price {
+  font-size: 3rem;
+  display: flex;
+  align-items: end;
+}
+
+.price span {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}

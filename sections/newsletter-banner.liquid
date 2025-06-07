@@ -1,6 +1,6 @@
 {{ 'section-newsletter-banner.css' | asset_url | stylesheet_tag }}
 
-<div class="newsletter-banner-container">
+<div style="color: ;" class="newsletter-banner-container">
   <div class="newsletter-banner-wrapper">
     <h2>{{ section.settings.title }}</h2>
     <form
@@ -63,6 +63,30 @@
       "type": "text",
       "id": "placeholder_input",
       "label": "Input placeholder text"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color"
     }
   ],
   "presets": [
