@@ -1,0 +1,88 @@
+<div class="product__grid__layout text-body">
+  <div class="product__card__header">
+    <h3>{{ product.title }}</h3>
+    <div>
+      <p class="text-body">SKU:</p>
+      <span class="sku text-body">{{ product.variants.first.sku | escape }}</span>
+    </div>
+  </div>
+
+  {{ product.featured_image | image_url: height: 300, height: 300 | image_tag: class: 'product__card__image' }}
+
+  <div class="product__card__price">
+    <span>starting at</span>
+    <div class="product__card__price__wrapper">
+      <p>
+        {{ product.price_min | money -}}
+      </p>
+      <span class="text-body">/unit</span>
+    </div>
+  </div>
+
+  <div class="product__card__specs">
+    <div class="product__card__spec">
+      <p>Brightness:</p>
+      <p>{{ product.metafields.custom.brightness.value }} Lumens</p>
+    </div>
+    <div class="product__card__spec">
+      <p>Moisture Rating:</p>
+      <p>{{ product.metafields.custom.moisture_rating }}</p>
+    </div>
+    <div class="product__card__spec">
+      <p>Wattage:</p>
+      <p>{{ product.metafields.custom.wattage_equivalence.value }}</p>
+    </div>
+    <div class="product__card__spec">
+      <p>Warranty:</p>
+      <p>{{ product.metafields.custom.warranty }}</p>
+    </div>
+    <div class="product__card__spec">
+      <p>Dimming:</p>
+      <p>
+        {% if product.metafields.custom.dimmable %}
+          Dimmable
+        {% else %}
+          Non-dimmable
+        {% endif %}
+      </p>
+    </div>
+    <div class="product__card__spec">
+      <p>CRI:</p>
+      <p>{{ product.metafields.custom.cri }}</p>
+    </div>
+  </div>
+
+  {% if product.variants.size > 0 %}
+    <div class="product__card__variants">
+      <div class="product__card__variant">
+        <p>Color:</p>
+        <p class="bold product-variant">{{ product.variants.first.option1 }}</p>
+      </div>
+      <div class="product-preview-collection__variants-buttons">
+        {% for variant in product.variants %}
+          <button
+            class="product-preview-picker-button{% if variant.id == product.selected_or_first_available_variant.id %} swatch-active{% endif %}"
+            value="{{ variant.id }}"
+            data-variant-id="{{ variant.id }}"
+            data-variant-sku="{{ variant.sku }}"
+            data-variant-name="{{ variant.option1 }}"
+            data-product-url="{{ product.url }}"
+          >
+            <img
+              src="{{ 'nav-collection-preview-placeholder.png' |  asset_img_url }}"
+              width="32"
+              height="32"
+              alt="Placeholder"
+            >
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="product__card__buttons">
+    <a class="link-to-product button text-body" href="{{ product.url }}?variant={{ product.variants.first.id }}"
+      >See product</a
+    >
+  </div>
+</div>
