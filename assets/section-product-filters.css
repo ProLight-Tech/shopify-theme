@@ -23,6 +23,15 @@
 }
 
 /* Collection View - Products */
+
+.product-grid-container .grid__item {
+  border-top: 1px solid #dadada;
+}
+
+.product-grid-container > .grid__item:first-child {
+  border-top: none;
+}
+
 .product__grid__layout {
   padding: 16px 0px;
   display: grid;
