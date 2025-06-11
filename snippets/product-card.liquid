@@ -19,38 +19,40 @@
     </div>
   </div>
 
-  <div class="product__card__specs">
-    <div class="product__card__spec">
-      <p>Brightness:</p>
-      <p>{{ product.metafields.custom.brightness.value }} Lumens</p>
+  {%- if product.metafields.custom.brightness.value != blank
+    and product.metafields.custom.moisture_rating.value != blank
+    and product.metafields.custom.wattage_equivalence.value != blank
+    and product.metafields.custom.warranty.value != blank
+    and product.metafields.custom.dimmable.value != blank
+    and product.metafields.custom.cri.value != blank
+  -%}
+    <div class="product__card__specs">
+      {% if product.metafields.custom.brightness.value != blank %}
+        <p>{{ product.metafields.custom.brightness.value }} Lumens</p>
+      {% endif %}
+      {% if product.metafields.custom.moisture_rating.value != blank %}
+        <p>{{ product.metafields.custom.moisture_rating }}</p>
+      {% endif %}
+      {% if product.metafields.custom.wattage_equivalence.value != blank %}
+        <p>{{ product.metafields.custom.wattage_equivalence.value }} Watts</p>
+      {% endif %}
+      {% if product.metafields.custom.warranty.value != blank %}
+        <p>{{ product.metafields.custom.warranty }}</p>
+      {% endif %}
+      {% if product.metafields.custom.dimmable.value != blank %}
+        <p>
+          {%- if product.metafields.custom.dimmable -%}
+            Dimmable
+          {%- else -%}
+            Non-dimmable
+          {%- endif -%}
+        </p>
+      {% endif %}
+      {% if product.metafields.custom.cri.value != blank %}
+        <p>{{ product.metafields.custom.cri }} CRI</p>
+      {%- endif -%}
     </div>
-    <div class="product__card__spec">
-      <p>Moisture Rating:</p>
-      <p>{{ product.metafields.custom.moisture_rating }}</p>
-    </div>
-    <div class="product__card__spec">
-      <p>Wattage:</p>
-      <p>{{ product.metafields.custom.wattage_equivalence.value }}</p>
-    </div>
-    <div class="product__card__spec">
-      <p>Warranty:</p>
-      <p>{{ product.metafields.custom.warranty }}</p>
-    </div>
-    <div class="product__card__spec">
-      <p>Dimming:</p>
-      <p>
-        {% if product.metafields.custom.dimmable %}
-          Dimmable
-        {% else %}
-          Non-dimmable
-        {% endif %}
-      </p>
-    </div>
-    <div class="product__card__spec">
-      <p>CRI:</p>
-      <p>{{ product.metafields.custom.cri }}</p>
-    </div>
-  </div>
+  {% endif %}
 
   {% if product.variants.size > 0 %}
     <div class="product__card__variants">

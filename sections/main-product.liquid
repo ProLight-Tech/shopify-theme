@@ -16,6 +16,9 @@
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
+  {% comment %} This imports product features from the collection view {% endcomment %}
+  {{ 'section-product-filters.css' | asset_url | stylesheet_tag }}
+
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
     {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
@@ -87,6 +90,29 @@
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
+              {% when 'features' %}
+                {%- if product.metafields.custom.brightness.value != blank
+                  and product.metafields.custom.moisture_rating.value != blank
+                  and product.metafields.custom.wattage_equivalence.value != blank
+                  and product.metafields.custom.warranty.value != blank
+                  and product.metafields.custom.dimmable.value != blank
+                  and product.metafields.custom.cri.value != blank
+                -%}
+                  <div class="product__card__specs">
+                    <p class="text-body">{{ product.metafields.custom.brightness.value }} Lumens</p>
+                    <p class="text-body">{{ product.metafields.custom.moisture_rating }}</p>
+                    <p class="text-body">{{ product.metafields.custom.wattage_equivalence.value }} Watts</p>
+                    <p class="text-body">{{ product.metafields.custom.warranty }}</p>
+                    <p class="text-body">
+                      {%- if product.metafields.custom.dimmable -%}
+                        Dimmable
+                      {%- else -%}
+                        Non-dimmable
+                      {%- endif -%}
+                    </p>
+                    <p class="text-body">{{ product.metafields.custom.cri }} CRI</p>
+                  </div>
+                {%- endif -%}
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
@@ -198,15 +224,18 @@
                   </div>
                 {%- endif -%}
               {%- when 'sku' -%}
-                <p
-                  class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
-                  id="Sku-{{ section.id }}"
-                  role="status"
-                  {{ block.shopify_attributes }}
-                >
-                  <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
-                  {{- product.selected_or_first_available_variant.sku -}}
-                </p>
+                {% if product.selected_or_first_available_variant.sku != blank %}
+                  <p
+                    class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
+                    id="Sku-{{ section.id }}"
+                    role="status"
+                    {{ block.shopify_attributes }}
+                  >
+                    <span> SKU: </span>
+                    <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
+                    {{- product.selected_or_first_available_variant.sku -}}
+                  </p>
+                {% endif %}
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
@@ -214,7 +243,7 @@
                   <details id="Details-{{ block.id }}-{{ section.id }}">
                     <summary>
                       <div class="summary__title">
-                        {% render 'icon-accordion', icon: block.settings.icon %}
+                        {% comment %} {% render 'icon-accordion', icon: block.settings.icon %} {% endcomment %}
                         <h2 class="h4 accordion__title inline-richtext">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
@@ -239,7 +268,7 @@
                     | item_count_for_variant: product.selected_or_first_available_variant.id
                   -%}
                   {% # theme-check-enable %}
-                  <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                  <label class="quantity__label text-body bold margin-b-2" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                     <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
                       {%- render 'loading-spinner' -%}
@@ -251,15 +280,11 @@
                     </span>
                   </label>
                   <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                      <button class="quantity__button" name="minus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                        </span>
-                        <span class="svg-wrapper">
-                          {{- 'icon-minus.svg' | inline_asset_content -}}
-                        </span>
-                      </button>
+                    <quantity-input
+                      class="quantity__container"
+                      data-url="{{ product.url }}"
+                      data-section="{{ section.id }}"
+                    >
                       <input
                         class="quantity__input"
                         type="number"
@@ -276,6 +301,14 @@
                         value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         form="{{ product_form_id }}"
                       >
+                      <button class="quantity__button" name="minus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                        </span>
+                        <span class="svg-wrapper">
+                          {{- 'icon-minus.svg' | inline_asset_content -}}
+                        </span>
+                      </button>
                       <button class="quantity__button" name="plus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
@@ -356,7 +389,10 @@
                                 </dt>
                                 <dd>
                                   <span class="price-per-item--current">
-                                    {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                    {{-
+                                      'products.product.volume_pricing.price_at_each_html'
+                                      | t: price: variant_price
+                                    -}}
                                   </span>
                                 </dd>
                               </dl>
@@ -730,6 +766,10 @@
   "tag": "section",
   "class": "section",
   "blocks": [
+    {
+      "type": "features",
+      "name": "Features"
+    },
     {
       "type": "@app"
     },
@@ -1674,7 +1714,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_2",
@@ -1874,7 +1914,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_3",
@@ -2176,7 +2216,7 @@
       ],
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },    
+    },
     {
       "type": "select",
       "id": "media_position",
