@@ -1,0 +1,11 @@
+.quote__page__container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.quote__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
