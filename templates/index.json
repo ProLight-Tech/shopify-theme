@@ -13,44 +13,17 @@
       "type": "banner",
       "settings": {
         "text_color": "#ffffff",
-        "text_card_color": "#204ec6",
+        "text_card_color": "#5379db",
         "show_background": true,
         "content_position": "left",
-        "title": "15% Off on all wallpacks!",
-        "body": "Made with durable aluminum alloy housing, our IP65-rated Wall Pack easily stands up to the elements.",
-        "main_button": "See product",
-        "main_button_link": "",
-        "main_button_background_color": "#000000",
+        "title": "Your Last Lighting Supplier — Ever.",
+        "body": "Unmatched stock, expertise, and follow-through for flawless projects.",
+        "main_button": "Shop by Category",
+        "main_button_link": "shopify://collections",
+        "main_button_background_color": "#e59254",
         "main_button_text_color": "#ffffff",
-        "secondary_button": "See collection",
-        "secondary_button_link": "",
-        "secondary_button_background_color": "#ffffff"
-      }
-    },
-    "product_carousel": {
-      "type": "carousel",
-      "settings": {
-        "mode": "single",
-        "title": "New Arrivals",
-        "collection": "new-arrivals",
-        "collection_list": []
-      }
-    },
-    "featured_collection_banner": {
-      "type": "banner",
-      "settings": {
-        "text_color": "#ffffff",
-        "text_card_color": "#204ec6",
-        "show_background": true,
-        "content_position": "left",
-        "title": "15% Off on all wallpacks!",
-        "body": "Made with durable aluminum alloy housing, our IP65-rated Wall Pack easily stands up to the elements.",
-        "main_button": "See product",
-        "main_button_link": "",
-        "main_button_background_color": "#000000",
-        "main_button_text_color": "#ffffff",
-        "secondary_button": "See collection",
-        "secondary_button_link": "",
+        "secondary_button": "Request a Quote",
+        "secondary_button_link": "shopify://pages/contact",
         "secondary_button_background_color": "#ffffff"
       }
     },
@@ -70,20 +43,47 @@
         ]
       }
     },
+    "featured_collection_banner": {
+      "type": "banner",
+      "settings": {
+        "text_color": "#ffffff",
+        "text_card_color": "#5379db",
+        "show_background": true,
+        "content_position": "right",
+        "title": "Free Shipping, lightning fast",
+        "body": "Every in-stock order ships within 48 hours. No fees, no fuss.",
+        "main_button": "Request a Quote",
+        "main_button_link": "shopify://pages/contact",
+        "main_button_background_color": "#e59254",
+        "main_button_text_color": "#ffffff",
+        "secondary_button": "Shop by Category",
+        "secondary_button_link": "shopify://collections",
+        "secondary_button_background_color": "#ffffff"
+      }
+    },
+    "product_carousel": {
+      "type": "carousel",
+      "settings": {
+        "mode": "single",
+        "title": "New Arrivals",
+        "collection": "new-arrivals",
+        "collection_list": []
+      }
+    },
     "featured_collection_banner_2": {
       "type": "banner",
       "settings": {
         "text_color": "#ffffff",
-        "text_card_color": "#204ec6",
+        "text_card_color": "#5379db",
         "show_background": true,
-        "content_position": "right",
-        "title": "15% Off on all wallpacks!",
-        "body": "Made with durable aluminum alloy housing, our IP65-rated Wall Pack easily stands up to the elements.",
-        "main_button": "See product",
-        "main_button_link": "",
-        "main_button_background_color": "#000000",
+        "content_position": "left",
+        "title": "Expert Lighting Layouts",
+        "body": "Precision photometrics for perfect foot-candles and full code compliance.",
+        "main_button": "Request a Layout",
+        "main_button_link": "shopify://pages/contact",
+        "main_button_background_color": "#e59254",
         "main_button_text_color": "#ffffff",
-        "secondary_button": "See collection",
+        "secondary_button": "",
         "secondary_button_link": "",
         "secondary_button_background_color": "#ffffff"
       }
@@ -92,7 +92,7 @@
       "type": "carousel",
       "settings": {
         "mode": "multiple",
-        "title": "Shop by space",
+        "title": "Shop by Space",
         "collection": "",
         "collection_list": [
           "new-arrivals",
@@ -110,26 +110,30 @@
         "paragraph": "Yes, I'd like to receive special offer emails from ProLight Tech, as well as news about products, services and my designs in progress. Read our Privacy and Cookie policy.",
         "text_button": "Sign up",
         "newsletter_link": "/",
-        "placeholder_input": "john@doe.com"
+        "placeholder_input": "john@doe.com",
+        "bg_color": "",
+        "text_color": "",
+        "button_color": "",
+        "button_text_color": ""
       }
     },
     "help": {
       "type": "help",
       "settings": {
-        "title": "About us",
-        "body_text": "<p>Hello there!</p>",
-        "email_header": "Email us",
-        "email_text": "support@youremail.com",
-        "call_header": "Call us",
-        "call_text": "(000) 000-0000"
+        "title": "About Us",
+        "body_text": "<p>With more than <strong>20 years of lighting experience</strong>, our Florida-based team supplies industrial and commercial spaces nationwide with fixtures engineered for demanding environments and tight deadlines.</p><p>Send us your plans and our in-house designers will model photometrics and recommend the optimal mix of fixtures, lenses, and controls—no extra charge.<br/></p><p>Most stocked orders <strong>ship within</strong> <strong>48 hours</strong>, so your project stays on schedule and on budget.<br/></p><p>From ultra-efficient high-bay LEDs to rugged outdoor solutions, we deliver light that works as hard as you do—backed by real-world expertise and the relentless service you expect from a partner, not just a supplier.</p>",
+        "email_header": "Email Us",
+        "email_text": "chris@prolighttech.com",
+        "call_header": "Call Us",
+        "call_text": "(786) 343-3801"
       }
     }
   },
   "order": [
     "banner",
-    "product_carousel",
-    "featured_collection_banner",
     "shop_by_category",
+    "featured_collection_banner",
+    "product_carousel",
     "featured_collection_banner_2",
     "shop_by_space",
     "newsletter",
