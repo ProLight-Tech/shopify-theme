@@ -2,112 +2,131 @@
 
 <div class="quote__page__container">
   <form class="quote__form" id="contact-quote-form">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
+    <div class="form__pii__wrapper">
+      <input class="input text-body" type="text" name="name" placeholder="Your name" required>
+      <input class="input text-body" type="email" name="email" placeholder="Your email" required>
+    </div>
 
-    <label for="reason">Reason for Contact:</label>
-    <select name="reason" id="reason" required>
-      <option value="general">General Support</option>
-      <option value="quote">Quote Request</option>
-    </select>
+    <div>
+      <label class="text-body" for="reason">Reason for Contact:</label>
+      <select class="input text-body" name="reason" id="reason" required>
+        <option value="general">General Support</option>
+        <option value="quote">Quote Request</option>
+      </select>
+    </div>
 
     <div id="general-fields">
-      <textarea name="message" placeholder="Your message"></textarea>
+      <textarea class="input text-body" name="message" placeholder="Your message"></textarea>
     </div>
 
     <div id="quote-fields" style="display:none;">
-      <label>Enter SKUs to Request:</label>
+      <label class="text-body">Enter SKUs to Request:</label>
       <div id="sku-list">
         <div class="sku-entry">
-          <input type="text" name="sku" placeholder="SKU" required>
-          <input type="number" name="qty" placeholder="Qty (optional)" min="1">
+          <input class="input text-body" type="text" name="sku" placeholder="SKU">
+          <input class="input text-body" type="number" name="qty" placeholder="Qty (optional)" min="1">
           <button type="button" class="remove-sku" style="display:none;">✕</button>
         </div>
       </div>
-      <button type="button" id="add-sku">+ Add Another SKU</button>
+      <button type="button" class="text-body" id="add-sku">+ Add Another SKU</button>
     </div>
 
-    <button type="submit">Send</button>
+    <button class="button form__button text-body" type="submit">Send</button>
   </form>
 
   <div id="form-response"></div>
 </div>
 
 <script>
-  const reasonSelect = document.getElementById('reason');
-  const quoteFields = document.getElementById('quote-fields');
-  const generalFields = document.getElementById('general-fields');
-  const skuList = document.getElementById('sku-list');
-  const addSkuBtn = document.getElementById('add-sku');
+  document.addEventListener('DOMContentLoaded', () => {
+    const reasonSelect = document.getElementById('reason');
+    const quoteFields = document.getElementById('quote-fields');
+    const generalFields = document.getElementById('general-fields');
+    const skuList = document.getElementById('sku-list');
+    const addSkuBtn = document.getElementById('add-sku');
 
-  reasonSelect.addEventListener('change', () => {
-    const isQuote = reasonSelect.value === 'quote';
-    quoteFields.style.display = isQuote ? 'block' : 'none';
-    generalFields.style.display = isQuote ? 'none' : 'block';
-  });
-
-  addSkuBtn.addEventListener('click', () => {
-    const entry = document.createElement('div');
-    entry.className = 'sku-entry';
-    entry.innerHTML = `
-      <input type="text" name="sku" placeholder="SKU" required />
-      <input type="number" name="qty" placeholder="Qty (optional)" min="1" />
-      <button type="button" class="remove-sku">✕</button>
-    `;
-    skuList.appendChild(entry);
-    updateRemoveButtons();
-  });
-
-  function updateRemoveButtons() {
-    const buttons = skuList.querySelectorAll('.remove-sku');
-    buttons.forEach((btn) => {
-      btn.style.display = 'inline';
-      btn.onclick = () => btn.parentElement.remove();
-    });
-  }
-
-  document.getElementById('contact-quote-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const reason = form.reason.value;
-
-    // Collect SKU list
-    let skus = [];
-    if (reason === 'quote') {
-      skuList.querySelectorAll('.sku-entry').forEach((entry) => {
-        const sku = entry.querySelector("input[name='sku']").value.trim();
-        const qty = entry.querySelector("input[name='qty']").value.trim();
-        if (sku) skus.push({ sku, qty });
+    function updateSkuRequiredState() {
+      const isQuote = reasonSelect.value === 'quote';
+      skuList.querySelectorAll("input[name='sku']").forEach((input) => {
+        input.required = isQuote;
       });
     }
 
-    const payload = {
-      name: form.name.value,
-      email: form.email.value,
-      reason,
-      message: form.message?.value || '',
-      skus,
-    };
+    reasonSelect.addEventListener('change', () => {
+      const isQuote = reasonSelect.value === 'quote';
+      quoteFields.style.display = isQuote ? 'block' : 'none';
+      generalFields.style.display = isQuote ? 'none' : 'block';
+      updateSkuRequiredState();
+    });
 
-    console.log(payload);
+    addSkuBtn.addEventListener('click', () => {
+      const entry = document.createElement('div');
+      entry.className = 'sku-entry';
+      entry.innerHTML = `
+      <input class="input text-body" type="text" name="sku" placeholder="SKU" required />
+      <input class="input text-body" type="number" name="qty" placeholder="Qty (optional)" min="1" />
+      <button type="button" class="remove-sku">✕</button>
+    `;
+      skuList.appendChild(entry);
+      updateRemoveButtons();
+    });
 
-    // const res = await fetch('https://your-api-id.lambda-url.amazonaws.com/', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(payload),
-    // });
+    function updateRemoveButtons() {
+      const buttons = skuList.querySelectorAll('.remove-sku');
+      buttons.forEach((btn) => {
+        btn.style.display = 'inline';
+        btn.onclick = () => btn.parentElement.remove();
+      });
+    }
 
-    // const data = await res.json();
-    document.getElementById('form-response').innerText = data.success
-      ? 'Submitted successfully!'
-      : 'Oops! Something went wrong.';
+    document.getElementById('contact-quote-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const reason = form.reason.value;
+
+      let skus = [];
+      if (reason === 'quote') {
+        skuList.querySelectorAll('.sku-entry').forEach((entry) => {
+          const sku = entry.querySelector("input[name='sku']").value.trim();
+          const qty = entry.querySelector("input[name='qty']").value.trim();
+          if (sku) skus.push({ sku, qty });
+        });
+      }
+
+      const payload = {
+        name: form.name.value,
+        email: form.email.value,
+        reason,
+        message: form.message?.value || '',
+        skus,
+      };
+
+      try {
+        const res = await fetch('https://e54k1fguwl.execute-api.us-east-1.amazonaws.com/prod/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': '4kKwZOKbyR1ibYZTYMelUafQYxiGxkU926Rgog6H',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        document.getElementById('form-response').innerText = data.success
+          ? 'Submitted successfully!'
+          : 'Oops! Something went wrong.';
+      } catch (error) {
+        console.error(error);
+        document.getElementById('form-response').innerText = 'Something went wrong while submitting the form.';
+      }
+    });
   });
 </script>
 
 {% schema %}
 {
   "name": "General submission",
-  "settings": [],
   "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
