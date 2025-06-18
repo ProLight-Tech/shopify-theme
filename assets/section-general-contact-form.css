@@ -1,7 +1,14 @@
 .quote__page__container {
   max-width: 800px;
   width: 100%;
-  margin: 0px auto;
+  margin: 32px auto;
+  padding: 16px;
+}
+
+@media screen and (min-width: 900px) {
+  .quote__page__container {
+    padding: 32px;
+  }
 }
 
 .quote__form {
@@ -53,7 +60,13 @@
 
 .sku-entry input:nth-of-type(2) {
   /* Your styles here */
-  flex: 1 0 200px;
+  flex: 1 0 120px;
+}
+
+@media screen and (min-width: 900px) {
+  .sku-entry input:nth-of-type(2) {
+    flex: 1 0 200px;
+  }
 }
 
 .remove-sku:hover {
