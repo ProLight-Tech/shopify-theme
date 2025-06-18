@@ -1,6 +1,7 @@
 .simple__footer__container {
   background-color: black;
   color: white;
+  margin-top: 32px;
 }
 
 .footer_simple_payment_wrapper {

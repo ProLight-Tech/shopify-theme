@@ -1,10 +1,12 @@
 <div class="product__grid__layout text-body">
   <div class="product__card__header">
     <h3>{{ product.title }}</h3>
-    <div>
-      <p class="text-body">SKU:</p>
-      <span class="sku text-body">{{ product.variants.first.sku | escape }}</span>
-    </div>
+    {% if product.variants.first.sku != blank %}
+      <div>
+        <p class="text-body">SKU:</p>
+        <span class="sku text-body">{{ product.variants.first.sku | escape }}</span>
+      </div>
+    {% endif %}
   </div>
 
   {{ product.featured_image | image_url: height: 300, height: 300 | image_tag: class: 'product__card__image' }}

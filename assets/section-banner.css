@@ -1,13 +1,15 @@
 .banner-main-container {
   position: relative;
   height: 400px;
+  margin: 0px auto;
+  max-width: var(--page-width);
   font-family: sans-serif;
 }
 
 .banner-text-container {
   position: relative;
   z-index: 2;
-  padding: 32px;
+  padding: 64px;
   height: 100%;
   width: 100%;
   display: flex;

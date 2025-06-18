@@ -7,6 +7,8 @@
   align-items: center;
   padding: 32px;
   text-align: center;
+  margin: 0px auto;
+  max-width: var(--page-width);
 }
 
 .newsletter-banner-container h2 {
