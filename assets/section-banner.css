@@ -9,7 +9,7 @@
 .banner-text-container {
   position: relative;
   z-index: 2;
-  padding: 64px;
+  padding: 32px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -17,6 +17,12 @@
   color: white;
   margin: 0px auto;
   max-width: var(--page-width);
+}
+
+@media screen and (min-width: 1000px) {
+  .banner-text-container {
+    padding: 64px;
+  }
 }
 
 .banner-text-center {

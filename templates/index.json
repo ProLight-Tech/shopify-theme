@@ -111,10 +111,10 @@
         "text_button": "Sign up",
         "newsletter_link": "/",
         "placeholder_input": "john@doe.com",
-        "bg_color": "",
-        "text_color": "",
-        "button_color": "",
-        "button_text_color": ""
+        "bg_color": "#5379DB",
+        "text_color": "#ffffff",
+        "button_color": "#000000",
+        "button_text_color": "#ffffff"
       }
     },
     "help": {

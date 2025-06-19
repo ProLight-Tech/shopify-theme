@@ -1,8 +1,11 @@
 {{ 'section-newsletter-banner.css' | asset_url | stylesheet_tag }}
 
-<div style="color: ;" class="newsletter-banner-container">
+<div
+  style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }}"
+  class="newsletter-banner-container"
+>
   <div class="newsletter-banner-wrapper">
-    <h2>{{ section.settings.title }}</h2>
+    <h2 style="color: {{ section.settings.text_color }};">{{ section.settings.title }}</h2>
     <form
       id="newsletter_form-{{ section.id }}"
       action="{{ section.settings.newsletter_link }}"
@@ -91,7 +94,18 @@
   ],
   "presets": [
     {
-      "name": "Newsletter Banner"
+      "name": "Newsletter Banner",
+      "settings": {
+        "title": "Join our newsletter get 10% off your first order",
+        "paragraph": "Yes, I'd like to receive special offer emails from ProLight Tech, as well as news about products, services and my designs in progress. Read our Privacy and Cookie policy.",
+        "text_button": "Sign up",
+        "newsletter_link": "/",
+        "placeholder_input": "john@doe.com",
+        "bg_color": "#5379DB",
+        "text_color": "#ffffff",
+        "button_color": "#000000",
+        "button_text_color": "#ffffff"
+      }
     }
   ]
 }
