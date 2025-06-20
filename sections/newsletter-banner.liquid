@@ -1,5 +1,7 @@
 {{ 'section-newsletter-banner.css' | asset_url | stylesheet_tag }}
 
+{{ 'section-newsletter-banner.css' | asset_url | stylesheet_tag }}
+
 <div
   style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }}"
   class="newsletter-banner-container"
@@ -8,29 +10,41 @@
     <h2 style="color: {{ section.settings.text_color }};">{{ section.settings.title }}</h2>
     <form
       id="newsletter_form-{{ section.id }}"
-      action="{{ section.settings.newsletter_link }}"
-      method="post"
+      action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc"
+      method="POST"
       role="newsletter"
       class="newsletter-banner-form"
+      target="_zcSignup"
     >
       <input
         id="newsletter_field-sectionId-{{ section.id }}"
-        name="newsletter_signup"
+        name="CONTACT_EMAIL"
         class="text__input"
-        placeholder="{{ section.settings.placeholder_input }} "
+        placeholder="{{ section.settings.placeholder_input }}"
+        required
       >
-      <button class="button newsletter-button" type="submit">{{ section.settings.text_button }}</button>
+
+      <input type="hidden" name="submitType" value="optinCustomView">
+      <input type="hidden" name="formType" value="QuickForm">
+      <input type="hidden" name="zx" value="1351b86bb">
+      <input type="hidden" name="zcvers" value="3.0">
+      <input type="hidden" name="zcld" value="1149ce61f7a8fef69">
+      <input type="hidden" name="zctd" value="1149ce61f7a8fe7a9">
+      <input type="hidden" name="zc_trackCode" value="ZCFORMVIEW">
+      <input type="hidden" name="zc_formIx" value="3z7665f434eb84575b0f9b89718be532b65dc4bfaa3cbf3b5acac25257de572558">
+      <input type="hidden" name="mode" value="OptinCreateView">
+
+      <button
+        class="button newsletter-button"
+        type="submit"
+        style="background-color: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }}"
+      >
+        {{ section.settings.text_button }}
+      </button>
     </form>
     <p class="text-body">{{ section.settings.paragraph | escape }}</p>
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    event.preventDefault();
-    const form = document.getElementById('newsletter_form-{{ section.id }}');
-  });
-</script>
 
 {% schema %}
 {

@@ -68,6 +68,9 @@
         "padding_bottom": 12
       }
     },
+    "banners": {
+      "type": "product-banners"
+    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -161,10 +164,11 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    }
+    },
   },
   "order": [
     "main",
+    "banners",
     "image-with-text",
     "multicolumn",
     "related-products"

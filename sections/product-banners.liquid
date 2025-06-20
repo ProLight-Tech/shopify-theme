@@ -1,0 +1,26 @@
+{{ 'section-product-banners.css' | asset_url | stylesheet_tag }}
+
+<div class="product__banners__container">
+  {% if product.metafields.custom.promo_banners %}
+    {% for file in product.metafields.custom.promo_banners.value %}
+      {{ file | image_url: width: 2000 | image_tag: class: 'product__banner__image', widths: '375,750,1100,1500' }}
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "product_banner",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Banners"
+    }
+  ]
+}
+{% endschema %}

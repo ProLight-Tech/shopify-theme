@@ -1,0 +1,12 @@
+.product__banners__container {
+  width: 100%;
+  max-width: var(--page-width);
+  margin: 32px auto;
+}
+
+.product__banner__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 16px;
+}
