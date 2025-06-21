@@ -1,0 +1,18 @@
+{{ 'section-product-description.css' | asset_url | stylesheet_tag }}
+
+{%- if product.description != blank -%}
+  <div class="product-description--container rte">
+    <h2>Description and Specifications</h2>
+
+    <div class="">
+      {{ product.description }}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product Description",
+  "settings": []
+}
+{% endschema %}

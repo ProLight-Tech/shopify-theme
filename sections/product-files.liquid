@@ -1,0 +1,22 @@
+{{ 'section-product-files.css' | asset_url | stylesheet_tag }}
+
+{% if product.metafields.custom.files %}
+  <div class="product-files__container">
+    <h2>Files and downloads</h2>
+
+    <div class="product-files__buttons">
+      {% for file in product.metafields.custom.files.value %}
+        {% if file %}
+          <a class="button" href="{{ file.asset.url }}" download>{{ file.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product files",
+  "settings": []
+}
+{% endschema %}

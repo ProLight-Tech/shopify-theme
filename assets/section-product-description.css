@@ -1,0 +1,16 @@
+.product-description--container {
+  max-width: var(--page-width);
+  width: 100%;
+  margin: 0px auto;
+  padding: 12px;
+}
+
+@media screen and (min-width: 1000px) {
+  .product-description--container {
+    padding: 32px;
+  }
+}
+
+.product-description {
+  max-width: 1000px;
+}

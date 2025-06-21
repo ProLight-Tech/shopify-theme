@@ -1,8 +1,10 @@
 <div class="product__grid__layout text-body">
   <div class="product__card__header">
-    <h3>{{ product.title }}</h3>
+    <a style="text-decoration: none;" href="{{ product.url }}?variant={{ product.variants.first.id }}">
+      <h3>{{ product.title }}</h3>
+    </a>
     {% if product.variants.first.sku != blank %}
-      <div>
+      <div class="sku-container">
         <p class="text-body">SKU:</p>
         <span class="sku text-body">{{ product.variants.first.sku | escape }}</span>
       </div>
@@ -56,29 +58,42 @@
     </div>
   {% endif %}
 
-  {% if product.variants.size > 0 %}
+  {% assign has_color_temperature = false %}
+  {% for variant in product.variants %}
+    {% if variant.option2 != blank %}
+      {% assign has_color_temperature = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if has_color_temperature %}
+    {% assign shown_temperatures = '' %}
+
     <div class="product__card__variants">
       <div class="product__card__variant">
-        <p>Color:</p>
-        <p class="bold product-variant">{{ product.variants.first.option1 }}</p>
+        <p>Color temperature:</p>
+        <p class="bold product-variant">{{ product.selected_or_first_available_variant.option2 }}</p>
       </div>
       <div class="product-preview-collection__variants-buttons">
         {% for variant in product.variants %}
-          <button
-            class="product-preview-picker-button{% if variant.id == product.selected_or_first_available_variant.id %} swatch-active{% endif %}"
-            value="{{ variant.id }}"
-            data-variant-id="{{ variant.id }}"
-            data-variant-sku="{{ variant.sku }}"
-            data-variant-name="{{ variant.option1 }}"
-            data-product-url="{{ product.url }}"
-          >
-            <img
-              src="{{ 'nav-collection-preview-placeholder.png' |  asset_img_url }}"
-              width="32"
-              height="32"
-              alt="Placeholder"
+          {% unless shown_temperatures contains variant.option2 %}
+            <button
+              class="product-preview-picker-button{% if variant.id == product.selected_or_first_available_variant.id %} swatch-active{% endif %}"
+              value="{{ variant.id }}"
+              data-variant-id="{{ variant.id }}"
+              data-variant-sku="{{ variant.sku }}"
+              data-variant-name="{{ variant.option2 }}"
+              data-product-url="{{ product.url }}"
             >
-          </button>
+              <img
+                src="{{ 'nav-collection-preview-placeholder.png' | asset_img_url }}"
+                width="32"
+                height="32"
+                alt="{{ variant.option2 }}"
+              >
+            </button>
+            {% assign shown_temperatures = shown_temperatures | append: variant.option2 | append: ',' %}
+          {% endunless %}
         {% endfor %}
       </div>
     </div>

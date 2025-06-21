@@ -3,6 +3,16 @@
   padding-left: 0px;
 }
 
+.sku-container {
+  padding-top: 6px;
+}
+
+@media screen and (min-width: 1000px) {
+  .sku-container {
+    padding-top: 10px;
+  }
+}
+
 .product-preview-picker-button {
   border-radius: 32px;
   height: 32px;
