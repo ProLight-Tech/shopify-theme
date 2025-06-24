@@ -12,6 +12,7 @@
     "banner": {
       "type": "banner",
       "settings": {
+        "image": "shopify://shop_images/AdobeStock_1100561066.jpg",
         "text_color": "#ffffff",
         "text_card_color": "#5379db",
         "show_background": true,
@@ -111,7 +112,7 @@
         "text_button": "Sign up",
         "newsletter_link": "/",
         "placeholder_input": "john@doe.com",
-        "bg_color": "#5379DB",
+        "bg_color": "#5379db",
         "text_color": "#ffffff",
         "button_color": "#000000",
         "button_text_color": "#ffffff"
