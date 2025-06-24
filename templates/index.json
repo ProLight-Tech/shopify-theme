@@ -32,7 +32,7 @@
       "type": "collection-grid",
       "name": "Collection Grid",
       "settings": {
-        "title": "Shop by category",
+        "title": "Shop by Category",
         "collections_grid_list": [
           "high-bays",
           "panels",
