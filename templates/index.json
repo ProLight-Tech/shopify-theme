@@ -81,6 +81,9 @@
     },
     "featured_collection_banner_2": {
       "type": "banner",
+      "custom_css": [
+        ".banner-image {width: 100%; height: 100%; object-fit: cover; /* scales & crops to fill */ object-position: center 25%; /* shift image up: 70% down from its top */}"
+      ],
       "settings": {
         "image": "shopify://shop_images/AdobeStock_292343157.jpg",
         "text_color": "#ffffff",
