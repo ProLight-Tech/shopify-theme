@@ -28,19 +28,23 @@
         "secondary_button_background_color": "#ffffff"
       }
     },
-    "shop_by_category": {
-      "type": "carousel",
+    "collection_grid_Btba3D": {
+      "type": "collection-grid",
+      "name": "Collection Grid",
       "settings": {
-        "mode": "multiple",
         "title": "Shop by category",
-        "collection": "new-arrivals",
-        "collection_list": [
-          "wall-packs",
-          "new-arrivals",
-          "linear-lights",
+        "collections_grid_list": [
           "high-bays",
-          "flood-lights",
-          "emergency-lights"
+          "panels",
+          "area-lights",
+          "linear-lights",
+          "vapor-tight",
+          "wall-packs",
+          "emergency-lights",
+          "security-lights",
+          "canopy-lights",
+          "cleanroom-fixtures-panels",
+          "cleanroom-fixtures-linears"
         ]
       }
     },
@@ -130,25 +134,16 @@
         "call_header": "Call Us",
         "call_text": "(786) 343-3801"
       }
-    },
-    "collection_grid_Btba3D": {
-      "type": "collection-grid",
-      "name": "Collection Grid",
-      "settings": {
-        "title": "Shop by category",
-        "collections_grid_list": []
-      }
     }
   },
   "order": [
     "banner",
-    "shop_by_category",
+    "collection_grid_Btba3D",
     "featured_collection_banner",
     "product_carousel",
     "featured_collection_banner_2",
     "shop_by_space",
     "newsletter",
-    "help",
-    "collection_grid_Btba3D"
+    "help"
   ]
 }
