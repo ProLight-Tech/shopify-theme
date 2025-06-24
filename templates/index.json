@@ -79,7 +79,7 @@
     "featured_collection_banner_2": {
       "type": "banner",
       "settings": {
-        "image": "shopify://shop_images/AdobeStock_429370878_6b2e5cc3-5176-4b32-b947-36dc9b1470d8.jpg",
+        "image": "shopify://shop_images/AdobeStock_208405476.jpg",
         "text_color": "#ffffff",
         "text_card_color": "#5379db",
         "show_background": true,
@@ -104,7 +104,6 @@
         "collection_list": [
           "new-arrivals",
           "high-bays",
-          "flood-lights",
           "panels",
           "linear-lights"
         ]
