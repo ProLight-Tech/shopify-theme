@@ -25,51 +25,42 @@ class NavigationDropdown extends HTMLElement {
   }
 
   connectedCallback() {
-  document.addEventListener('click', this.handleOutsideClick);
+    document.addEventListener('click', this.handleOutsideClick);
 
-  
-  this.querySelectorAll('.submenu').forEach((item) => {
-    const wrapper = item.closest('li');
+    this.querySelectorAll('.submenu').forEach((item) => {
+      item.addEventListener('mouseover', (e) => {
+        e.stopPropagation();
+        const ul = item.nextElementSibling;
+        const isOpen = ul.classList.contains('open');
+        this.closeAllMenus();
 
-    
-    item.addEventListener('mouseover', (e) => {
-      e.stopPropagation();
-      const ul = item.nextElementSibling;
-      const isOpen = ul.classList.contains('open');
-      this.closeAllMenus();
-      if (!isOpen || this.openedElement !== item) {
-        item.classList.add('underlined');
-        ul.classList.add('open');
-        ul.classList.remove('closed');
-        this.openedElement = item;
-      }
+        if (!isOpen || this.openedElement !== item) {
+          item.classList.add('underlined');
+          ul.classList.add('open');
+          ul.classList.remove('closed');
+        }
+      });
+
+
+      item.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent click from bubbling to document
+        this.openedElement(item);
+
+        const ul = item.nextElementSibling;
+        const isOpen = ul.classList.contains('open');
+
+        // Close all menus first
+        this.closeAllMenus();
+
+        if (!isOpen) {
+          // Reopen only the clicked one
+          item.classList.add('underlined');
+          ul.classList.add('open');
+          ul.classList.remove('closed');
+        }
+      });
     });
-
-    
-    wrapper.addEventListener('mouseleave', () => {
-      item.classList.remove('underlined');
-      const ul = item.nextElementSibling;
-      ul.classList.remove('open');
-      ul.classList.add('closed');
-      this.openedElement = null;
-    });
-
-    
-    item.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.openedElement = item;
-      const ul = item.nextElementSibling;
-      const isOpen = ul.classList.contains('open');
-      this.closeAllMenus();
-      if (!isOpen) {
-        item.classList.add('underlined');
-        ul.classList.add('open');
-        ul.classList.remove('closed');
-      }
-    });
-  });
-}
-
+  }
 
   disconnectedCallback() {
     document.removeEventListener('click', this.handleOutsideClick);
