@@ -130,6 +130,14 @@
         "call_header": "Call Us",
         "call_text": "(786) 343-3801"
       }
+    },
+    "collection_grid_Btba3D": {
+      "type": "collection-grid",
+      "name": "Collection Grid",
+      "settings": {
+        "title": "Shop by category",
+        "collections_grid_list": []
+      }
     }
   },
   "order": [
@@ -140,6 +148,7 @@
     "featured_collection_banner_2",
     "shop_by_space",
     "newsletter",
-    "help"
+    "help",
+    "collection_grid_Btba3D"
   ]
 }
