@@ -41,6 +41,14 @@ class NavigationDropdown extends HTMLElement {
         }
       });
 
+      item.addEventListener('mouseleave', (e) => {
+        item.classList.remove('underlined');
+        const ul = item.nextElementSibling;
+        ul.classList.remove('open');
+        ul.classList.add('closed');
+        this.openedElement = null;
+        });
+
       item.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent click from bubbling to document
         this.openedElement(item);
