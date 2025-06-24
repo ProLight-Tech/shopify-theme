@@ -2,46 +2,42 @@
 
 {{ 'section-newsletter-banner.css' | asset_url | stylesheet_tag }}
 
+<style>
+  .quick_form_8_css * {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word;
+  }
+  @media only screen and (max-width: 600px) {
+    .quick_form_8_css[name='SIGNUP_BODY'] {
+      width: 100% !important;
+      min-width: 100% !important;
+      margin: 0px auto !important;
+      padding: 0px !important;
+    }
+    .SIGNUP_FLD {
+      width: 90% !important;
+      margin: 10px 5% !important;
+      padding: 0px !important;
+    }
+    .SIGNUP_FLD input {
+      margin: 0 !important;
+      border-radius: 25px !important;
+    }
+  }
+</style>
+
 <div
   style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }}"
   class="newsletter-banner-container"
 >
   <div class="newsletter-banner-wrapper">
     <h2 style="color: {{ section.settings.text_color }};">{{ section.settings.title }}</h2>
-    <form
-      id="newsletter_form-{{ section.id }}"
-      action="https://zcsub-cmpzourl.maillist-manage.com/weboptin.zc"
-      method="POST"
-      role="newsletter"
-      class="newsletter-banner-form"
-      target="_zcSignup"
-    >
-      <input
-        id="newsletter_field-sectionId-{{ section.id }}"
-        name="CONTACT_EMAIL"
-        class="text__input"
-        placeholder="{{ section.settings.placeholder_input }}"
-        required
-      >
 
-      <input type="hidden" name="submitType" value="optinCustomView">
-      <input type="hidden" name="formType" value="QuickForm">
-      <input type="hidden" name="zx" value="1351b86bb">
-      <input type="hidden" name="zcvers" value="3.0">
-      <input type="hidden" name="zcld" value="1149ce61f7a8fef69">
-      <input type="hidden" name="zctd" value="1149ce61f7a8fe7a9">
-      <input type="hidden" name="zc_trackCode" value="ZCFORMVIEW">
-      <input type="hidden" name="zc_formIx" value="3z7665f434eb84575b0f9b89718be532b65dc4bfaa3cbf3b5acac25257de572558">
-      <input type="hidden" name="mode" value="OptinCreateView">
-
-      <button
-        class="button newsletter-button"
-        type="submit"
-        style="background-color: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }}"
-      >
-        {{ section.settings.text_button }}
-      </button>
-    </form>
+    <!-- Zoho Campaigns Web-Optin Form's Header Code Starts Here -->
+    {{ section.settings.form }}
+    <!-- Zoho Campaigns Web-Optin Form Ends Here -->
     <p class="text-body">{{ section.settings.paragraph | escape }}</p>
   </div>
 </div>
@@ -51,6 +47,11 @@
   "name": "Newsletter Banner",
   "class": "seciton",
   "settings": [
+    {
+      "type": "liquid",
+      "label": "Zoho form",
+      "id": "form"
+    },
     {
       "type": "text",
       "id": "title",
