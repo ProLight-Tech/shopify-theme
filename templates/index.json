@@ -128,6 +128,7 @@
         "featured_collection_LgTj3h",
         "featured_collection_XfjK4p"
       ],
+      "disabled": true,
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Shop by Space",
@@ -167,6 +168,16 @@
         "call_header": "Call Us",
         "call_text": "(786) 343-3801"
       }
+    },
+    "carousel_yVkQwQ": {
+      "type": "carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "mode": "single",
+        "title": "New Arrivals",
+        "collection": "new-arrivals",
+        "collection_list": []
+      }
     }
   },
   "order": [
@@ -176,6 +187,7 @@
     "product_carousel",
     "featured_collection_banner_2",
     "collection_list_WPVpjQ",
+    "carousel_yVkQwQ",
     "newsletter",
     "help"
   ]
