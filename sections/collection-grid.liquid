@@ -1,21 +1,15 @@
 {{ 'section-collection-grid.css' | asset_url | stylesheet_tag }}
 
-<div class="collection-grid-container">
+<div class="collection-grid__container">
   <h2>{{ section.settings.title }}</h2>
-  <div class="collection-grid-items-container" style="display: grid;">
+  <div class="collection-grid__grid">
     {% for collection in section.settings.collections_grid_list %}
-      <a class="collection-grid-item-container" href="{{ collection.url }}">
-        <div class="collection-grid-image-cropper">
-          {% if collection.image %}
-            <img
-              width="300"
-              height="200"
-              src="{{ collection.image | image_url: width: 600 }}"
-              alt="{{ collection.title }}"
-            >
-          {% endif %}
+      <a class="collection-grid__collection-link" href="{{ collection.url }}">
+        <div class="collection-grid__image-container">
+          {% assign collection_preview = collection.metafields.custom.transparent_collection_image.value %}
+          {{ collection_preview | image_url: width: 300 | image_tag }}
         </div>
-        <h3 class="collection-grid-item-text text-body">{{ collection.title }}</h3>
+        <h3 class="collection-grid__collection-name">{{ collection.title }}</h3>
       </a>
     {% endfor %}
   </div>

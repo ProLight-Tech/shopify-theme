@@ -5,7 +5,8 @@
     </div>
     <div class="nav-collection-preview-image">
       {%- if collection.featured_image != blank -%}
-        {{ collection.featured_image | image_url: height: 100 | image_tag }}
+        {% assign collection_preview = collection.metafields.custom.navigation_menu_image.value %}
+        {{ collection_preview | image_url: width: 150 | image_tag }}
       {%- else -%}
         <img
           src="{{ 'nav-collection-preview-placeholder.png' |  asset_url }}"
