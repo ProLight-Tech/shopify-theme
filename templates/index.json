@@ -107,19 +107,19 @@
         "featured_collection_YPKWRV": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "indoors"
           }
         },
         "featured_collection_LgTj3h": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "outdoor"
           }
         },
         "featured_collection_XfjK4p": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "cleanrooms"
           }
         }
       },
