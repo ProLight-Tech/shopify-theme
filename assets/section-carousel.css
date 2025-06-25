@@ -88,10 +88,3 @@
     gap: 16px;
   }
 }
-
-/* For desktops and up (min-width: 1024px) */
-@media (min-width: 1024px) {
-  .carousel-wrapper {
-    gap: 32px;
-  }
-}

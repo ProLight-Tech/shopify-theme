@@ -2,7 +2,7 @@
   <div class="collection-preview-image-container">
     {% assign collection_preview = collection.metafields.custom.transparent_collection_image.value %}
     {% if collection_preview != blank %}
-      {{ collection_preview | image_url: width: 300 | image_tag }}
+      {{ collection_preview | image_url: width: 300 | image_tag: class: 'collection-preview-image' }}
     {% else %}
       <img
         src="{{ 'nav-collection-preview-placeholder.png' |  asset_url }}"

@@ -3699,6 +3699,8 @@ details-disclosure > details {
 
 .collection-preview-image {
   object-fit: cover;
+  border-radius: 12px;
+  background-color: #f2f2f2;
 }
 
 .collection-preview-header {
