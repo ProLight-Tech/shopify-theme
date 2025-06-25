@@ -1,7 +1,8 @@
 <a href="{{ collection.url }}" class="collection-preview-container">
   <div class="collection-preview-image-container">
-    {% if collection.featured_image != blank %}
-      {{ collection.featured_image | image_url: height: 300 | image_tag: class: 'collection-preview-image' }}
+    {% assign collection_preview = collection.metafields.custom.transparent_collection_image.value %}
+    {% if collection_preview != blank %}
+      {{ collection_preview | image_url: width: 300 | image_tag }}
     {% else %}
       <img
         src="{{ 'nav-collection-preview-placeholder.png' |  asset_url }}"
