@@ -101,18 +101,45 @@
         "secondary_button_background_color": "#ffffff"
       }
     },
-    "shop_by_space": {
-      "type": "carousel",
+    "collection_list_WPVpjQ": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_YPKWRV": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_LgTj3h": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_XfjK4p": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_YPKWRV",
+        "featured_collection_LgTj3h",
+        "featured_collection_XfjK4p"
+      ],
+      "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "mode": "multiple",
         "title": "Shop by Space",
-        "collection": "",
-        "collection_list": [
-          "new-arrivals",
-          "high-bays",
-          "panels",
-          "linear-lights"
-        ]
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 36
       }
     },
     "newsletter": {
@@ -148,7 +175,7 @@
     "featured_collection_banner",
     "product_carousel",
     "featured_collection_banner_2",
-    "shop_by_space",
+    "collection_list_WPVpjQ",
     "newsletter",
     "help"
   ]
