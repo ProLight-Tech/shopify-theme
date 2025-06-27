@@ -373,5 +373,18 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- ZC Popup Code Starts -->
+    <script defer type="text/javascript" id="ZC_Forms_Popup" src="https://campaigns.zoho.com/js/optin.min.js"></script>
+    <script defer type="text/javascript">
+      window.onload = function () {
+        loadZCPopup(
+          '3z02e28c253cb05b1605a1d4783920e920b68b919358aa8f1e3984b6940ff03d8e',
+          'ZCFORMVIEW',
+          '3z9a7e27242a5dc2d1710a0731aaaac0be'
+        );
+      };
+    </script>
+    <!-- ZC Popup Code Ends -->
   </body>
 </html>
