@@ -86,7 +86,7 @@
               data-product-url="{{ product.url }}"
             >
               <img
-                src="{{ 'nav-collection-preview-placeholder.png' | asset_img_url }}"
+                src="{{ variant.option2 | append: '.png' | asset_url }}"
                 width="32"
                 height="32"
                 alt="{{ variant.option2 }}"
